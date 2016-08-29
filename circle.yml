@@ -1,0 +1,44 @@
+  ## Customize the test machine
+machine:
+
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  # Version of ruby to use
+  java:
+    version: openjdk7
+
+## Customize checkout
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init # use submodules
+
+## Customize dependencies
+dependencies:
+  # we automatically cache and restore many dependencies between
+  # builds. If you need to, you can add custom paths to cache:
+  cache_directories:
+    - ~/.grails  
+
+## Customize database setup
+## Customize test commands
+test:
+  post:
+    - ./grailsw clean --non-interactive
+    - ./grailsw war --non-interactive
+
+## Customize deployment commands
+
+deployment:
+  staging:
+    branch: staging
+    commands:
+      - /root/deploy_staging.sh
+
+## Custom notifications
+##notify:
+  ##webhooks:
+    # A list of hashes representing hooks. Only the url field is supported.
+    ##- url: https://someurl.com/hooks/circle
+
