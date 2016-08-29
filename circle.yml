@@ -32,7 +32,7 @@ test:
 
 deployment:
   staging:
-    branch: staging
+    branch: master
     commands:
       - /root/deploy_staging.sh
 
