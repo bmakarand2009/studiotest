@@ -34,7 +34,7 @@ deployment:
   staging:
     branch: master
     commands:
-      - /root/deploy_staging.sh
+      - rsync -ave "ssh -p22222"  target/studiotest-0.1.war root@canarylogic.com:/root
 
 ## Custom notifications
 ##notify:
