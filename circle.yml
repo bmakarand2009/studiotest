@@ -35,7 +35,8 @@ deployment:
   staging:
     branch: master
     commands:
-      - rsync -ave "ssh -p22222"  target/studiotest-0.1.war root@canarylogic.com:/root
+      - rsync -ave "ssh -p22222"  target/studiotest-0.1.war root@canarylogic.com:/opt/apache-tomcat/apache-tomcat-7.0.47/webapps/studiotest.war
+      - ssh -p22222 root@canarylogic.com /etc/init.d/tomcat restart
 
 ## Custom notifications
 ##notify:
