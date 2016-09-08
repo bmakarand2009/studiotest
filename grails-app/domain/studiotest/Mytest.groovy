@@ -4,4 +4,5 @@ class Mytest {
 
     static constraints = {
     }
+    String name
 }
